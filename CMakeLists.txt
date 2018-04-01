@@ -5,7 +5,7 @@ project (caffe2_cpp_tutorial)
 find_package(Protobuf REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(OpenCV REQUIRED)
-find_package(cURL QUIET)
+find_package(CURL REQUIRED)
 find_package(CUDA QUIET)
 find_package(Threads)
 
@@ -26,6 +26,7 @@ find_library(GTEST_LIB gtest)
 find_library(NCCL_LIB nccl) # Somehow necessary to prevent "undefined reference to `ncclReduceScatter'"
 
 set(PB_SOURCE_DIR "${PROJECT_SOURCE_DIR}/src/caffe2/util")
+
 execute_process(
   COMMAND ${PROTOBUF_PROTOC_EXECUTABLE} --proto_path=../caffe2 --proto_path=${PB_SOURCE_DIR} --cpp_out=${PB_SOURCE_DIR} "${PB_SOURCE_DIR}/model.proto"
   WORKING_DIRECTORY ${PROJECT_SOURCE_DIR})
