@@ -63,37 +63,37 @@ void resizeWindow(const std::string &view, const Size &size) {
 Rect selectROI(const std::string &windowName, void *img, bool showCrosshair,
                bool fromCenter) {
   // TODO
-#if CV_MAJOR_VERSION > 2
-  auto rect =
-      cv::selectROI(windowName, (cv::InputArray)img, showCrosshair, fromCenter);
-  return Rect(rect.x, rect.y, rect.width, rect.height);
-#else
+   //#if CV_MAJOR_VERSION > 2
+   //auto rect =
+   // cv::selectROI(windowName, (cv::InputArray)img, showCrosshair, fromCenter);
+   //return Rect(rect.x, rect.y, rect.width, rect.height);
+   //#else
   return Rect(-1, -1, -1, -1);
-#endif
+  //#endif
 }
 
 Rect selectROI(void *img, bool showCrosshair, bool fromCenter) {
   // TODO
-#if CV_MAJOR_VERSION > 2
-  auto rect = cv::selectROI((cv::InputArray)img, showCrosshair, fromCenter);
-  return Rect(rect.x, rect.y, rect.width, rect.height);
-#else
+   //#if CV_MAJOR_VERSION > 2
+   //auto rect = cv::selectROI((cv::InputArray)img, showCrosshair, fromCenter);
+   //return Rect(rect.x, rect.y, rect.width, rect.height);
+   //#else
   return Rect(-1, -1, -1, -1);
-#endif
+  //#endif
 }
 
 void selectROIs(const std::string &windowName, void *img,
                 std::vector<Rect> &boundingBoxes, bool showCrosshair,
                 bool fromCenter) {
   // TODO
-#if CV_MAJOR_VERSION > 2
-  std::vector<cv::Rect> boxes;
-  for (auto b : boundingBoxes) {
-    boxes.push_back(cv::Rect(b.x, b.y, b.width, b.height));
-  }
-  cv::selectROIs(windowName, (cv::InputArray)img, boxes, showCrosshair,
-                 fromCenter);
-#endif
+   //#if CV_MAJOR_VERSION > 2
+   //std::vector<cv::Rect> boxes;
+   //for (auto b : boundingBoxes) {
+   //boxes.push_back(cv::Rect(b.x, b.y, b.width, b.height));
+   //}
+   //cv::selectROIs(windowName, (cv::InputArray)img, boxes, showCrosshair,
+   //            fromCenter);
+   //#endif
 }
 
 void setMouseCallback(const std::string &view, MouseCallback onMouse,
