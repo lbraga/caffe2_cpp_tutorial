@@ -129,7 +129,8 @@ void image_to_tensor(TensorCPU &tensor, cv::Mat &image, float mean = 128) {
 }
 
 template <typename T>
-void read_image_tensor(TensorCPU &tensor,
+void
+read_image_tensor(TensorCPU &tensor,
                        const std::vector<std::string> &filenames, int width,
                        int height, std::vector<int> &indices, float mean,
                        TensorProto::DataType type) {
@@ -138,6 +139,9 @@ void read_image_tensor(TensorCPU &tensor,
   auto count = 0;
 
   for (auto &filename : filenames) {
+
+     std::cout << "filename: " << filename << std::endl;
+     
     // load image
     auto image = cv::imread(filename);  // CV_8UC3 uchar
     // std::cout << "image size: " << image.size() << std::endl;
