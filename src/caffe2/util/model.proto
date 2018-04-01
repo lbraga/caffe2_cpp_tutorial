@@ -2,7 +2,7 @@ syntax = "proto2";
 
 package caffe2;
 
-import "external.proto";
+import "caffe2/proto/caffe2.proto";
 
 message InputInfo {
   repeated uint32 dims = 1;
